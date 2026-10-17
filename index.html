@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bryan Espinoza · Ciberseguridad, Soporte TI y Desarrollo</title>
+<meta name="description" content="Portafolio de Bryan Jeremy Espinoza Herrera, Profesional Técnico en Ingeniería de Ciberseguridad (SENATI). Soporte TI, redes, análisis de vulnerabilidades y sistemas SaaS seguros.">
+<meta property="og:title" content="Bryan Espinoza · Portafolio">
+<meta property="og:description" content="Ciberseguridad, soporte TI y sistemas SaaS en producción con seguridad desde el diseño.">
+<meta property="og:image" content="https://elbjota.github.io/img/reservas.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B1120; --bg2: #0F172A; --card: #111A2E; --line: #1E2A44;
+    --ink: #E2E8F0; --muted: #94A3B8; --accent: #22D3EE; --accent2: #34D399; --warn: #FBBF24;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: "JetBrains Mono", Consolas, monospace; }
+
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(11,17,32,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .brand { font-weight: 800; color: var(--ink); letter-spacing: .02em; }
+  nav .brand span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; font-size: 14px; }
+  nav ul a { color: var(--muted); }
+  nav ul a:hover { color: var(--ink); text-decoration: none; }
+
+  header.hero { padding: 90px 0 70px; background:
+      radial-gradient(800px 400px at 85% 10%, rgba(34,211,238,.14), transparent 60%),
+      radial-gradient(600px 300px at 10% 90%, rgba(52,211,153,.10), transparent 60%); }
+  .tag { display: inline-block; font-size: 13px; color: var(--accent); border: 1px solid rgba(34,211,238,.35); border-radius: 999px; padding: 4px 12px; margin-bottom: 22px; }
+  h1 { font-size: clamp(34px, 5.5vw, 58px); line-height: 1.08; margin: 0 0 18px; letter-spacing: -.02em; }
+  h1 .hl { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 720px; margin: 0 0 30px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: 15px; }
+  .btn.primary { background: var(--accent); color: #04232B; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink); }
+  .btn:hover { text-decoration: none; filter: brightness(1.1); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 54px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .stat b { display: block; font-size: 28px; color: var(--ink); }
+  .stat span { font-size: 13px; color: var(--muted); }
+
+  section { padding: 70px 0; border-top: 1px solid var(--line); }
+  .eyebrow { font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; font-weight: 600; }
+  h2 { font-size: 32px; margin: 8px 0 12px; letter-spacing: -.01em; }
+  .sub { color: var(--muted); max-width: 760px; margin: 0 0 36px; }
+
+  .projects { display: grid; gap: 26px; }
+  .project { display: grid; grid-template-columns: 1.05fr 1fr; gap: 28px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .project:nth-child(even) .shot { order: 2; }
+  .shot { background: #000; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 16/10; }
+  .body { padding: 26px 26px 26px 0; display: flex; flex-direction: column; }
+  .project:nth-child(even) .body { padding: 26px 0 26px 26px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .badge { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+  .b-live { background: rgba(52,211,153,.12); color: var(--accent2); border: 1px solid rgba(52,211,153,.35); }
+  .b-sec { background: rgba(34,211,238,.10); color: var(--accent); border: 1px solid rgba(34,211,238,.35); }
+  .b-wip { background: rgba(251,191,36,.10); color: var(--warn); border: 1px solid rgba(251,191,36,.35); }
+  .project h3 { font-size: 22px; margin: 0 0 8px; }
+  .project p { color: var(--muted); margin: 0 0 12px; font-size: 15px; }
+  .project ul { margin: 0 0 16px; padding-left: 18px; color: var(--ink); font-size: 14.5px; }
+  .project li { margin-bottom: 4px; }
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+  .stack span { font-size: 12px; color: var(--muted); background: var(--bg2); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; }
+  .links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 16px; font-weight: 600; font-size: 14.5px; }
+
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .box h4 { margin: 0 0 8px; font-size: 16px; }
+  .box p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .box code { font-size: 12.5px; color: var(--accent); }
+
+  .timeline { display: grid; gap: 16px; }
+  .job { display: grid; grid-template-columns: 200px 1fr; gap: 20px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .job .when { color: var(--accent); font-size: 14px; font-weight: 600; }
+  .job h4 { margin: 0 0 4px; font-size: 17px; }
+  .job .org { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+  .job ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 14.5px; }
+
+  .certs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cert { display: flex; gap: 14px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; font-size: 15px; }
+  .cert .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent2); flex: none; }
+  .cert small { display: block; color: var(--muted); font-size: 13px; }
+
+  .contact { text-align: center; }
+  .contact .cta { justify-content: center; }
+  footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); font-size: 13px; text-align: center; }
+
+  @media (max-width: 860px) {
+    nav ul { display: none; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .project { grid-template-columns: 1fr; }
+    .project:nth-child(even) .shot { order: 0; }
+    .body, .project:nth-child(even) .body { padding: 0 20px 22px; }
+    .grid3 { grid-template-columns: 1fr; }
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .certs { grid-template-columns: 1fr; }
+    header.hero { padding: 60px 0 50px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">bryan<span>.</span>espinoza</a>
+    <ul>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#seguridad">Seguridad</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#certificaciones">Certificaciones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="tag mono">Trujillo, Perú · Presencial o remoto</div>
+    <h1>Bryan Jeremy Espinoza Herrera<br><span class="hl">Ciberseguridad, Soporte TI y Desarrollo</span></h1>
+    <p class="lead">Profesional Técnico en Ingeniería de Ciberseguridad (SENATI) con más de 2 años en soporte TI. Construyo herramientas y sistemas para negocios reales con la seguridad desde el diseño: aislamiento de datos, control de accesos y pruebas que atacan mi propio código.</p>
+    <div class="cta">
+      <a class="btn primary" href="#proyectos">Ver proyectos →</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/bryan-jeremy-espinoza-herrera-aaa190380" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/elbjota" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>5</b><span>proyectos documentados</span></div>
+      <div class="stat"><b>3</b><span>sistemas en producción con clientes</span></div>
+      <div class="stat"><b>+10,000</b><span>pruebas automáticas en mis proyectos</span></div>
+      <div class="stat"><b>2+ años</b><span>en soporte TI y mesa de ayuda</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="eyebrow">Proyectos</div>
+    <h2>Lo que he construido</h2>
+    <p class="sub">Cada proyecto tiene su caso de estudio en PDF con el problema, la solución, la arquitectura y las decisiones de seguridad. El código fuente es privado; puedo mostrarlo en una entrevista.</p>
+
+    <div class="projects">
+
+      <article class="project">
+        <div class="shot"><img src="img/nmap.jpg" alt="Herramienta de análisis de vulnerabilidades" loading="lazy"></div>
+        <div class="body">
+          <div class="badges"><span class="badge b-sec">Ciberseguridad</span><span class="badge b-live">Implementado en empresa</span></div>
+          <h3>Análisis de vulnerabilidades en redes · CMC Technology</h3>
+          <p>El soporte técnico de la empresa diagnosticaba a mano y sin visibilidad de la red. Desarrollé una herramienta portable que lo automatiza.</p>
+          <ul>
+            <li>Descubre hosts con Nmap y clasifica cada servicio expuesto en riesgo alto, medio o bajo</li>
+            <li>Diagnóstico del equipo (CPU, RAM, disco, DHCP) y reporte PDF automático</li>
+            <li>Proyecto de innovación SENATI 2026, validado en la red de la empresa</li>
+          </ul>
+          <div class="stack"><span>Python</span><span>Nmap</span><span>CustomTkinter</span><span>ReportLab</span></div>
+          <div class="links"><a href="https://github.com/elbjota/analisis-vulnerabilidades-red-cmc" target="_blank" rel="noopener">Ver proyecto →</a><a href="https://github.com/elbjota/analisis-vulnerabilidades-red-cmc/blob/main/docs/caso-de-estudio.pdf" target="_blank" rel="noopener">Caso de estudio (PDF)</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot"><img src="img/reservas.jpg" alt="BJOTA Reservas" loading="lazy"></div>
+        <div class="body">
+          <div class="badges"><span class="badge b-live">En producción</span><span class="badge b-sec">Multi-tenant + RLS</span></div>
+          <h3>BJOTA Reservas · SaaS para barberías</h3>
+          <p>Las barberías agendaban por WhatsApp y no sabían cuánto producía cada barbero. Ahora cada una tiene su página de reservas y un panel de caja y reportes.</p>
+          <ul>
+            <li>Reserva en 5 pasos sin cuenta, agenda por barbero, POS, caja y adelantos por Yape</li>
+            <li>Dinero solo por funciones RPC y citas que la base de datos impide cruzar</li>
+            <li>1779 pruebas automáticas, 151 migraciones, autoalojado en VPS con Docker</li>
+          </ul>
+          <div class="stack"><span>Next.js 16</span><span>TypeScript</span><span>PostgreSQL</span><span>Supabase</span><span>Docker</span><span>Nginx</span></div>
+          <div class="links"><a href="https://reservas.bjota.online/estilo-norte" target="_blank" rel="noopener">Demo en vivo →</a><a href="https://github.com/elbjota/bjota-reservas-barberias" target="_blank" rel="noopener">Ver proyecto</a><a href="https://github.com/elbjota/bjota-reservas-barberias/blob/main/docs/caso-de-estudio.pdf" target="_blank" rel="noopener">PDF</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot"><img src="img/canela.jpg" alt="Canela Store" loading="lazy"></div>
+        <div class="body">
+          <div class="badges"><span class="badge b-live">En producción</span><span class="badge b-sec">RLS forzado</span></div>
+          <h3>Canela Store · Tienda online y punto de venta</h3>
+          <p>Una tienda de maquillaje vendía solo por chat y su stock no se actualizaba. Construí una plataforma multi-tienda con tienda online, POS e inventario.</p>
+          <ul>
+            <li>Catálogo con variantes, checkout sin cuenta, pagos Yape/Plin con confirmación</li>
+            <li>Pedidos transaccionales e inventario con kardex que baja solo</li>
+            <li>Contenedores endurecidos y pruebas de XSS y cabeceras falsificadas</li>
+          </ul>
+          <div class="stack"><span>Next.js 15</span><span>Express</span><span>Prisma</span><span>PostgreSQL 16</span><span>Vitest</span></div>
+          <div class="links"><a href="https://tiendas.bjota.online/canela-store" target="_blank" rel="noopener">Tienda en vivo →</a><a href="https://github.com/elbjota/canela-store-tiendas" target="_blank" rel="noopener">Ver proyecto</a><a href="https://github.com/elbjota/canela-store-tiendas/blob/main/docs/caso-de-estudio.pdf" target="_blank" rel="noopener">PDF</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot"><img src="img/psicologos.jpg" alt="SaaS para psicólogos" loading="lazy"></div>
+        <div class="body">
+          <div class="badges"><span class="badge b-sec">Datos de salud</span><span class="badge b-wip">Listo para desplegar</span></div>
+          <h3>SaaS de citas para psicólogos independientes</h3>
+          <p>Agenda, pacientes, cobros y reportes con página pública editable, diseñado para datos de salud mental.</p>
+          <ul>
+            <li>Encontré y corregí un fallo que permitía escalar a Super Admin saltándose RLS</li>
+            <li>Minimización deliberada: sin historia clínica; archivos privados con URLs firmadas</li>
+            <li>3116 pruebas Vitest y 436 pruebas E2E con Playwright</li>
+          </ul>
+          <div class="stack"><span>Next.js 16</span><span>PostgreSQL 17</span><span>Supabase autoalojado</span><span>Caddy</span><span>Playwright</span></div>
+          <div class="links"><a href="https://github.com/elbjota/saas-citas-psicologos" target="_blank" rel="noopener">Ver proyecto →</a><a href="https://github.com/elbjota/saas-citas-psicologos/blob/main/docs/caso-de-estudio.pdf" target="_blank" rel="noopener">Caso de estudio (PDF)</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="shot"><img src="img/talleres.jpg" alt="Workflow de n8n" loading="lazy"></div>
+        <div class="body">
+          <div class="badges"><span class="badge b-sec">Automatización</span><span class="badge b-live">Piloto con cliente</span></div>
+          <h3>Gestión de talleres por Telegram · CJ Car Solutions</h3>
+          <p>Un taller de planchado y pintura manejaba cotizaciones e inventario a mano. Ahora el dueño le habla a un bot y todo queda en Google Sheets.</p>
+          <ul>
+            <li>Cotizaciones, trabajos, inventario, cobros y PDFs desde Telegram</li>
+            <li>IA (Gemini) que interpreta texto y voz, siempre con confirmación antes de guardar</li>
+            <li>Workflow de 27 nodos en n8n, 92 pruebas automáticas</li>
+          </ul>
+          <div class="stack"><span>n8n</span><span>Telegram API</span><span>Google Sheets</span><span>Apps Script</span><span>Gemini</span></div>
+          <div class="links"><a href="https://github.com/elbjota/sistema-gestion-talleres-cj" target="_blank" rel="noopener">Ver proyecto →</a><a href="https://github.com/elbjota/sistema-gestion-talleres-cj/blob/main/docs/caso-de-estudio.pdf" target="_blank" rel="noopener">Caso de estudio (PDF)</a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="seguridad">
+  <div class="wrap">
+    <div class="eyebrow">Enfoque</div>
+    <h2>Seguridad desde el diseño</h2>
+    <p class="sub">Mi formación en ciberseguridad está en cada proyecto, no solo en el de Nmap.</p>
+    <div class="grid3">
+      <div class="box"><h4>Aislamiento entre clientes</h4><p>Row Level Security en PostgreSQL: aunque la aplicación falle, un negocio no puede ver los datos de otro. <code>FORCE RLS</code>, roles sin privilegios.</p></div>
+      <div class="box"><h4>Ataco mi propio código</h4><p>Pruebas adversariales de privilegios, XSS, cabeceras <code>X-Forwarded-For</code> falsificadas y escalada de privilegios antes de que lo haga otro.</p></div>
+      <div class="box"><h4>Datos mínimos y protegidos</h4><p>No guardar lo que no se necesita, archivos privados con URLs firmadas, metadatos EXIF eliminados y logs sin datos personales.</p></div>
+      <div class="box"><h4>Infraestructura endurecida</h4><p>Docker con <code>cap_drop: ALL</code> y solo lectura, HTTPS con HSTS, CSP con nonce y límites de intentos en login.</p></div>
+      <div class="box"><h4>Dinero que cuadra</h4><p>Transacciones con bloqueo de filas y escritura solo por funciones validadas: sin vender lo que no hay ni descuadrar la caja.</p></div>
+      <div class="box"><h4>Respaldo y recuperación</h4><p>Backups cifrados y ensayos de restauración documentados antes de poner datos reales en producción.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="eyebrow">Trayectoria</div>
+    <h2>Experiencia</h2>
+    <div class="timeline">
+      <div class="job">
+        <div class="when">May. 2026 – Actualidad</div>
+        <div><h4>Desarrollador de soluciones SaaS y automatización</h4><div class="org">BJOTA Systems · Freelance · Trujillo</div>
+          <ul><li>SaaS para barberías, tiendas y consultorios, con clientes reales en producción.</li><li>Levantamiento de requisitos, despliegue en VPS y soporte posterior.</li></ul></div>
+      </div>
+      <div class="job">
+        <div class="when">Feb. 2024 – Abr. 2026</div>
+        <div><h4>Técnico de Soporte TI (Help Desk)</h4><div class="org">CMC Technology S.A.C. · Trujillo</div>
+          <ul><li>Soporte de primer y segundo nivel: hardware, software, Windows, Linux y redes TCP/IP.</li><li>Mantenimiento preventivo y correctivo de equipos.</li><li>Desarrollé la herramienta de análisis de vulnerabilidades con Nmap y reportes PDF.</li></ul></div>
+      </div>
+      <div class="job">
+        <div class="when">Ene. 2019 – Nov. 2021</div>
+        <div><h4>Promotor de ventas</h4><div class="org">Overall Strategy · Claro · Trujillo</div>
+          <ul><li>Atención al cliente y negociación, hoy aplicadas al soporte a usuarios.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificaciones">
+  <div class="wrap">
+    <div class="eyebrow">Formación</div>
+    <h2>Educación y certificaciones</h2>
+    <div class="certs">
+      <div class="cert"><span class="dot"></span><div>Profesional Técnico en Ingeniería de Ciberseguridad<small>SENATI · 2023 – 2026 · Egresado</small></div></div>
+      <div class="cert"><span class="dot"></span><div>FortiGate 7.6 Operator<small>Fortinet Training Institute · 2025</small></div></div>
+      <div class="cert"><span class="dot"></span><div>CCNAv7: Switching, Routing and Wireless Essentials<small>Cisco Networking Academy · 2024</small></div></div>
+      <div class="cert"><span class="dot"></span><div>Cybersecurity Essentials<small>Cisco Networking Academy · 2024</small></div></div>
+      <div class="cert"><span class="dot"></span><div>Introducción al IoT y Transformación Digital<small>Cisco Networking Academy · 2023</small></div></div>
+      <div class="cert"><span class="dot"></span><div>Entrepreneurship<small>Cisco Networking Academy · 2023</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contacto</div>
+    <h2>¿Conversamos?</h2>
+    <p class="sub" style="margin-left:auto;margin-right:auto">Busco oportunidades en soporte TI con enfoque en ciberseguridad, en Trujillo o remoto.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/bryan-jeremy-espinoza-herrera-aaa190380" target="_blank" rel="noopener">Escríbeme por LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/elbjota" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Bryan Jeremy Espinoza Herrera · Trujillo, Perú</footer>
+
+</body>
+</html>
