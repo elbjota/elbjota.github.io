@@ -170,12 +170,12 @@
       <article class="project">
         <div class="shot"><img src="img/reservas.jpg" alt="BJOTA Reservas" loading="lazy"></div>
         <div class="body">
-          <div class="badges"><span class="badge b-live">En producción</span><span class="badge b-sec">Multi-tenant + RLS</span></div>
+          <div class="badges"><span class="badge b-live">En producción</span><span class="badge b-sec">Varios negocios, datos separados</span></div>
           <h3>BJOTA Reservas · SaaS para barberías</h3>
           <p>Las barberías agendaban por WhatsApp y no sabían cuánto producía cada barbero. Ahora cada una tiene su página de reservas y un panel de caja y reportes.</p>
           <ul>
             <li>Reserva en 5 pasos sin cuenta, agenda por barbero, POS, caja y adelantos por Yape</li>
-            <li>Dinero solo por funciones RPC y citas que la base de datos impide cruzar</li>
+            <li>La base de datos impide que dos citas del mismo barbero se crucen</li>
             <li>1779 pruebas automáticas, 151 migraciones, autoalojado en VPS con Docker</li>
           </ul>
           <div class="stack"><span>Next.js 16</span><span>TypeScript</span><span>PostgreSQL</span><span>Supabase</span><span>Docker</span><span>Nginx</span></div>
@@ -186,13 +186,13 @@
       <article class="project">
         <div class="shot"><img src="img/canela.jpg" alt="Canela Store" loading="lazy"></div>
         <div class="body">
-          <div class="badges"><span class="badge b-live">En producción</span><span class="badge b-sec">RLS forzado</span></div>
+          <div class="badges"><span class="badge b-live">En producción</span><span class="badge b-sec">Varias tiendas, datos separados</span></div>
           <h3>Canela Store · Tienda online y punto de venta</h3>
           <p>Una tienda de maquillaje vendía solo por chat y su stock no se actualizaba. Construí una plataforma multi-tienda con tienda online, POS e inventario.</p>
           <ul>
             <li>Catálogo con variantes, checkout sin cuenta, pagos Yape/Plin con confirmación</li>
-            <li>Pedidos transaccionales e inventario con kardex que baja solo</li>
-            <li>Contenedores endurecidos y pruebas de XSS y cabeceras falsificadas</li>
+            <li>El stock baja solo con cada venta y nunca se vende lo que no hay</li>
+            <li>Probé ataques comunes (como XSS) antes de publicarla</li>
           </ul>
           <div class="stack"><span>Next.js 15</span><span>Express</span><span>Prisma</span><span>PostgreSQL 16</span><span>Vitest</span></div>
           <div class="links"><a href="https://tiendas.bjota.online/canela-store" target="_blank" rel="noopener">Tienda en vivo →</a><a href="https://github.com/elbjota/canela-store-tiendas" target="_blank" rel="noopener">Ver proyecto</a><a href="https://github.com/elbjota/canela-store-tiendas/blob/main/docs/caso-de-estudio.pdf" target="_blank" rel="noopener">PDF</a></div>
@@ -206,8 +206,8 @@
           <h3>SaaS de citas para psicólogos independientes</h3>
           <p>Agenda, pacientes, cobros y reportes con página pública editable, diseñado para datos de salud mental.</p>
           <ul>
-            <li>Encontré y corregí un fallo que permitía escalar a Super Admin saltándose RLS</li>
-            <li>Minimización deliberada: sin historia clínica; archivos privados con URLs firmadas</li>
+            <li>Encontré y corregí un fallo que habría permitido a un usuario darse permisos de administrador</li>
+            <li>No guarda historia clínica a propósito: solo lo necesario para agendar y cobrar</li>
             <li>3116 pruebas Vitest y 436 pruebas E2E con Playwright</li>
           </ul>
           <div class="stack"><span>Next.js 16</span><span>PostgreSQL 17</span><span>Supabase autoalojado</span><span>Caddy</span><span>Playwright</span></div>
@@ -241,12 +241,12 @@
     <h2>Seguridad desde el diseño</h2>
     <p class="sub">Mi formación en ciberseguridad está en cada proyecto, no solo en el de Nmap.</p>
     <div class="grid3">
-      <div class="box"><h4>Aislamiento entre clientes</h4><p>Row Level Security en PostgreSQL: aunque la aplicación falle, un negocio no puede ver los datos de otro. <code>FORCE RLS</code>, roles sin privilegios.</p></div>
-      <div class="box"><h4>Ataco mi propio código</h4><p>Pruebas adversariales de privilegios, XSS, cabeceras <code>X-Forwarded-For</code> falsificadas y escalada de privilegios antes de que lo haga otro.</p></div>
-      <div class="box"><h4>Datos mínimos y protegidos</h4><p>No guardar lo que no se necesita, archivos privados con URLs firmadas, metadatos EXIF eliminados y logs sin datos personales.</p></div>
-      <div class="box"><h4>Infraestructura endurecida</h4><p>Docker con <code>cap_drop: ALL</code> y solo lectura, HTTPS con HSTS, CSP con nonce y límites de intentos en login.</p></div>
-      <div class="box"><h4>Dinero que cuadra</h4><p>Transacciones con bloqueo de filas y escritura solo por funciones validadas: sin vender lo que no hay ni descuadrar la caja.</p></div>
-      <div class="box"><h4>Respaldo y recuperación</h4><p>Backups cifrados y ensayos de restauración documentados antes de poner datos reales en producción.</p></div>
+      <div class="box"><h4>Cada negocio ve solo sus datos</h4><p>La base de datos separa la información de cada cliente (con RLS). Aunque la aplicación tenga un error, una barbería nunca puede ver los datos de otra.</p></div>
+      <div class="box"><h4>Intento romper mis propios sistemas</h4><p>Antes de publicar, pruebo como lo haría un atacante: entrar a datos de otro negocio, meter código malicioso en un formulario (XSS) o saltarme los límites de intentos.</p></div>
+      <div class="box"><h4>Guardo solo lo necesario</h4><p>Lo que no se guarda no se puede filtrar. Los archivos son privados, los enlaces para verlos caducan en minutos y a las fotos les quito la ubicación GPS.</p></div>
+      <div class="box"><h4>Servidores cerrados</h4><p>Conexión siempre cifrada (HTTPS), cada programa del servidor con los permisos mínimos y un límite de intentos para adivinar contraseñas.</p></div>
+      <div class="box"><h4>El dinero siempre cuadra</h4><p>Si dos clientes compran la última unidad al mismo tiempo, solo uno lo logra. Los pagos y la caja solo se modifican con reglas que validan cada movimiento.</p></div>
+      <div class="box"><h4>Copias de seguridad probadas</h4><p>Backups cifrados y, más importante, pruebas de que se pueden restaurar, antes de guardar datos reales.</p></div>
     </div>
   </div>
 </section>
